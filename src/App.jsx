@@ -28,7 +28,13 @@ function App() {
             path="/dashboard"
             element={
               <ProtectedRoute
-                allowedRoles={["admin", "driver", "dispatcher", "manager"]}
+                allowedRoles={[
+                  "admin",
+                  "driver",
+                  "customer",
+                  "dispatcher",
+                  "manager",
+                ]}
               >
                 <Dashboard />
               </ProtectedRoute>
