@@ -59,6 +59,7 @@ function AddShipment() {
         specialInstructions: values.specialInstructions?.trim() || "",
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
+        mobile: values.mobile.trim() || "",
       };
 
       await setDoc(shipmentRef, shipmentData);
@@ -241,6 +242,21 @@ function AddShipment() {
                   ]}
                 >
                   <Input placeholder="Example: No 25, Colombo" size="large" />
+                </Form.Item>
+              </Col>
+
+              <Col xs={24} md={12}>
+                <Form.Item
+                  label="mobile"
+                  name="mobile"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please enter mobile number.",
+                    },
+                  ]}
+                >
+                  <Input placeholder="Example: 077 76 78 765" size="large" />
                 </Form.Item>
               </Col>
 

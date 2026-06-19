@@ -17,7 +17,6 @@ import {
   Row,
   Space,
   Spin,
-  Statistic,
   Tag,
   Typography,
   message,
@@ -145,6 +144,7 @@ function Dashboard() {
       current_location: updatedShipment.currentLocation || "N/A",
       eta: updatedShipment.eta || "N/A",
       special_instructions: updatedInstruction,
+      mobile: updatedShipment.mobile,
     };
 
     return emailjs.send(
@@ -366,6 +366,10 @@ function Dashboard() {
                   {shipment.currentLocation || "N/A"}
                 </Descriptions.Item>
 
+                <Descriptions.Item label="mobile">
+                  {shipment.mobile || "N/A"}
+                </Descriptions.Item>
+
                 <Descriptions.Item label="ETA">
                   {shipment.eta || "N/A"}
                 </Descriptions.Item>
@@ -374,22 +378,39 @@ function Dashboard() {
                   {shipment.address || "N/A"}
                 </Descriptions.Item>
 
+                <Descriptions.Item label="Driver Email">
+                  {shipment.email || "None"}
+                </Descriptions.Item>
+
                 <Descriptions.Item label="Special Instructions">
-                  <Flex justify="space-between" align="center" gap={12}>
-                    <span>{shipment.specialInstructions || "None"}</span>
+                  <Flex
+                    align="center"
+                    justify="space-between"
+                    gap={12}
+                    style={{ width: "100%" }}
+                  >
+                    <span
+                      style={{
+                        flex: 1,
+                        wordBreak: "break-word",
+                        color: shipment.specialInstructions
+                          ? "inherit"
+                          : "#8c8c8c",
+                      }}
+                    >
+                      {shipment.specialInstructions || "None"}
+                    </span>
 
                     <Button
                       type="link"
+                      size="small"
                       icon={<EditOutlined />}
                       onClick={handleOpenInstructionModal}
+                      style={{ paddingInline: 0, whiteSpace: "nowrap" }}
                     >
                       Update
                     </Button>
                   </Flex>
-                </Descriptions.Item>
-
-                <Descriptions.Item label="Driver Email">
-                  {shipment.email || "None"}
                 </Descriptions.Item>
               </Descriptions>
             </Card>
