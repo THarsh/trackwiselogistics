@@ -388,7 +388,7 @@ function Dashboard() {
                   </Flex>
                 </Descriptions.Item>
 
-                <Descriptions.Item label="Email">
+                <Descriptions.Item label="Driver Email">
                   {shipment.email || "None"}
                 </Descriptions.Item>
               </Descriptions>
