@@ -20,6 +20,7 @@ import {
   Tag,
   Typography,
   message,
+  Tooltip,
 } from "antd";
 import {
   EditOutlined,
@@ -383,34 +384,30 @@ function Dashboard() {
                 </Descriptions.Item>
 
                 <Descriptions.Item label="Special Instructions">
-                  <Flex
-                    align="center"
-                    justify="space-between"
-                    gap={12}
-                    style={{ width: "100%" }}
-                  >
-                    <span
-                      style={{
-                        flex: 1,
-                        wordBreak: "break-word",
-                        color: shipment.specialInstructions
-                          ? "inherit"
-                          : "#8c8c8c",
-                      }}
+                  <Space size={8} align="center" wrap>
+                    <Text
+                      type={
+                        shipment.specialInstructions ? undefined : "secondary"
+                      }
+                      style={{ wordBreak: "break-word" }}
                     >
                       {shipment.specialInstructions || "None"}
-                    </span>
+                    </Text>
 
-                    <Button
-                      type="link"
-                      size="small"
-                      icon={<EditOutlined />}
-                      onClick={handleOpenInstructionModal}
-                      style={{ paddingInline: 0, whiteSpace: "nowrap" }}
-                    >
-                      Update
-                    </Button>
-                  </Flex>
+                    <Tooltip title="Update instructions">
+                      <Button
+                        size="small"
+                        shape="circle"
+                        icon={<EditOutlined />}
+                        onClick={handleOpenInstructionModal}
+                        style={{
+                          color: "#1677ff",
+                          borderColor: "#91caff",
+                          background: "#e6f4ff",
+                        }}
+                      />
+                    </Tooltip>
+                  </Space>
                 </Descriptions.Item>
               </Descriptions>
             </Card>
