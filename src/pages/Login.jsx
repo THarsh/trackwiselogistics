@@ -82,14 +82,7 @@ function Login() {
           />
         )}
 
-        <Form
-          layout="vertical"
-          initialValues={{
-            email: "driver@test.com",
-            password: "123456",
-          }}
-          onFinish={handleLogin}
-        >
+        <Form layout="vertical" onFinish={handleLogin}>
           <Form.Item
             label="Email"
             name="email"
