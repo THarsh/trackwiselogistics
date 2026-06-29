@@ -171,10 +171,10 @@ function AddShipment() {
 
               <Col xs={24} md={12}>
                 <Form.Item
-                  label="Customer Email"
+                  label="Driver Email"
                   name="email"
                   rules={[
-                    { required: true, message: "Please enter customer email." },
+                    { required: true, message: "Please enter driver email." },
                     { type: "email", message: "Please enter a valid email." },
                   ]}
                 >
